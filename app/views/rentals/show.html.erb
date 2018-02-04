@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pickupdatetime:</strong>
+  <%= @rental.pickUpDateTime %>
+</p>
+
+<p>
+  <strong>Returndatetime:</strong>
+  <%= @rental.returnDateTime %>
+</p>
+
+<p>
+  <strong>Odemeterbefore:</strong>
+  <%= @rental.odemeterBefore %>
+</p>
+
+<p>
+  <strong>Odemeterafter:</strong>
+  <%= @rental.odemeterAfter %>
+</p>
+
+<p>
+  <strong>Gastankbefore:</strong>
+  <%= @rental.gasTankBefore %>
+</p>
+
+<p>
+  <strong>Gastankafter:</strong>
+  <%= @rental.gasTankAfter %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @rental.customer.try(:phoneNumber) %>
+</p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @rental.vehicle.regNumber %>
+</p>
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', rentals_path %>

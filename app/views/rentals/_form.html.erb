@@ -1,0 +1,58 @@
+
+<%= form_with(model: rental, local: true) do |form| %>
+  <% if rental.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
+
+      <ul>
+      <% rental.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pickUpDateTime %>
+    <%= form.datetime_select :pickUpDateTime, id: :rental_pickUpDateTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returnDateTime %>
+    <%= form.datetime_select :returnDateTime, id: :rental_returnDateTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :odemeterBefore %>
+    <%= form.number_field :odemeterBefore, id: :rental_odemeterBefore %>
+  </div>
+
+  <div class="field">
+    <%= form.label :odemeterAfter %>
+    <%= form.number_field :odemeterAfter, id: :rental_odemeterAfter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gasTankBefore %>
+    <%= form.number_field :gasTankBefore, id: :rental_gasTankBefore %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gasTankAfter %>
+    <%= form.number_field :gasTankAfter, id: :rental_gasTankAfter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.collection_select :customer_id, Customer.order(:phoneNumber), :id, :phoneNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_id %>
+      <%= form.collection_select :vehicle_id, Vehicle.order(:regNumber), :id, :regNumber %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

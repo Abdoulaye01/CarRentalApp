@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pickUpDateTime: 2018-02-02 23:13:49
+  returnDateTime: 2018-02-02 23:13:49
+  odemeterBefore: 1
+  odemeterAfter: 1
+  gasTankBefore: 1
+  gasTankAfter: 1
+  client_id: MyString
+  vehicle_id: MyString
+
+two:
+  pickUpDateTime: 2018-02-02 23:13:49
+  returnDateTime: 2018-02-02 23:13:49
+  odemeterBefore: 1
+  odemeterAfter: 1
+  gasTankBefore: 1
+  gasTankAfter: 1
+  client_id: MyString
+  vehicle_id: MyString

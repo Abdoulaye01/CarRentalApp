@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RentalCarapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+
+<div class="container">
+
+<h1>Car Rental</h1>
+<img src="assets/rental.jpg">
+
+<nav>
+
+<ul class="nav navbar-nav navbar-right">
+
+<li><%= link_to "Company",'http://localhost:3000/companies' %></li>
+
+<li><%= link_to "Rental", 'http://localhost:3000/rentals' %></li>
+
+<li><%= link_to "Customer", 'http://localhost:3000/customers'%></li>
+<li><%= link_to "Vehicle", 'http://localhost:3000/vehicles'%></li>
+
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<body>
+
+<%= yield %>
+
+
+
+</body>
+
+</html>

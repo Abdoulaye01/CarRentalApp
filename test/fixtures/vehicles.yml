@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  regNumber: MyString
+  vehicleType: MyString
+  engineSize: 1
+  fuelType: MyString
+  colour: MyString
+  company_id: MyString
+
+two:
+  regNumber: MyString
+  vehicleType: MyString
+  engineSize: 1
+  fuelType: MyString
+  colour: MyString
+  company_id: MyString
