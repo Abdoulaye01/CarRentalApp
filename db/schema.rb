@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180203005112) do
+ActiveRecord::Schema.define(version: 20180215010754) do
 
   create_table "companies", force: :cascade do |t|
     t.string "city"
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(version: 20180203005112) do
     t.string "address"
     t.string "email"
     t.integer "phoneNumber"
-    t.string "company_id"
+    t.string "gender"
+    t.date "dob"
+    t.string "password_digest"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,8 +42,17 @@ ActiveRecord::Schema.define(version: 20180203005112) do
     t.integer "odemeterAfter"
     t.integer "gasTankBefore"
     t.integer "gasTankAfter"
-    t.string "customer_id"
-    t.string "vehicle_id"
+    t.integer "customer_id"
+    t.integer "vehicle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "customer_id"
+    t.integer "rental_id"
+    t.integer "stars"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,7 +63,8 @@ ActiveRecord::Schema.define(version: 20180203005112) do
     t.integer "engineSize"
     t.string "fuelType"
     t.string "colour"
-    t.string "company_id"
+    t.decimal "price"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

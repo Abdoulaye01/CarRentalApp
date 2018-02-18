@@ -29,7 +29,6 @@
   <div class="field">
     <%= form.label :fuelType %>
     <%= form.text_field :fuelType, id: :vehicle_fuelType %>
-  
   </div>
 
   <div class="field">
@@ -38,8 +37,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :vehicle_price %>
+  </div>
+
+  <div class="field">
     <%= form.label :company_id %>
-     <%= form.collection_select :company_id, Company.order(:address), :id, :address %>
+    <%= form.collection_select :company_id, Company.order(:address), :id, :address %>
   </div>
 
   <div class="actions">

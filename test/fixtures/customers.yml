@@ -6,6 +6,9 @@ one:
   address: MyString
   email: MyString
   phoneNumber: 1
+  gender: MyString
+  dob: MyString
+  password: MyString
   company_id: MyString
 
 two:
@@ -14,4 +17,7 @@ two:
   address: MyString
   email: MyString
   phoneNumber: 1
+  gender: MyString
+  dob: MyString
+  password: MyString
   company_id: MyString

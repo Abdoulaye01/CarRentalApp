@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
-
+ before_action :authorise
   # GET /rentals
   # GET /rentals.json
   def index

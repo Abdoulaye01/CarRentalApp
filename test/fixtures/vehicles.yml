@@ -6,6 +6,7 @@ one:
   engineSize: 1
   fuelType: MyString
   colour: MyString
+  price: 9.99
   company_id: MyString
 
 two:
@@ -14,4 +15,5 @@ two:
   engineSize: 1
   fuelType: MyString
   colour: MyString
+  price: 9.99
   company_id: MyString

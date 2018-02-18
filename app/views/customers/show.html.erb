@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Firstname:</strong>
@@ -26,9 +26,30 @@
 </p>
 
 <p>
-  <strong>Company:</strong>
-  <%= @customer.company.address %>
+  <strong>Gender:</strong>
+  <%= @customer.gender %>
 </p>
 
+<p>
+  <strong>Dob:</strong>
+  <%= get_age @customer.dob %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @customer.password %>
+</p>
+
+<p>
+  <strong>CompanyLocation:</strong>
+   <%= @customer.company.address %>
+</p>
+<% @customer.rentals.each do |rental| %>
+<br>
+	Has rented this car with registration number : <%= rental.vehicle.regNumber %> and the Price was : <%= euro rental.vehicle.price %></br>
+	
+<% end %>
+<br>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+

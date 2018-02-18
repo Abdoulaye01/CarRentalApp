@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,43 +7,77 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   </head>
-
 <body>
 
 <header class="navbar navbar-fixed-top navbar-inverse">
 
 <div class="container">
 
-<h1>Car Rental</h1>
-<img src="assets/rental.jpg">
+<h1 style="color: red">Car Rental</h1>
 
-<nav>
+<%= link_to image_tag("rental.jpg", size: "170x100", alt: "Company logo"), 'http://localhost:3000/vehicles' %>
 
-<ul class="nav navbar-nav navbar-right">
 
-<li><%= link_to "Company",'http://localhost:3000/companies' %></li>
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+   
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Company",'http://localhost:3000/companies' %></li>
 
 <li><%= link_to "Rental", 'http://localhost:3000/rentals' %></li>
 
 <li><%= link_to "Customer", 'http://localhost:3000/customers'%></li>
 <li><%= link_to "Vehicle", 'http://localhost:3000/vehicles'%></li>
 
+     		<li><% if !signed_in? %></li>
+					<li><%= link_to "Sign In", login_path %></li>
+				<% else %>
+				<li><%= link_to "Sign Out", logout_path %></li>
+				<li>Welcome back <%= @current_customer.firstName %> :)</li>
 
-</ul>
+				<li><%end%></li>
 
-</nav>
+      </ul>
+    </div>
+  </div>
+	 </nav>	 
+<div class="container-fluid">
 
-</div>
 
 </header>
 
-<body>
-
-<%= yield %>
-
-
-
+<% flash.each do |key, value| %>
+		<div class="flash <%= key %>">
+			<%= value %>
+		</div>
+	<% end %>
+	<%= yield %>
 </body>
+<footer>
+	
+  <div class="footer">
+   <ul>
+	<li> <strong style="color: teal">  Name: Abdoulaye Kaloga</strong></li>
+		 <li><strong  style="color: teal"> Application Name: Car Rental</strong> </li>
+	 <li><strong style= "color: teal" >Github Link:<%= link_to "GitHub", 'https://github.com/Abdoulaye01/CarRentalApp' %></strong></li>
+	 <li><strong style= "color: teal" >Email:</strong><%= mail_to 'c15489978@mydit.ie' %></li>
+	 <li> <strong style="color: teal"><%= Time.now.year %> @Copyright!</strong></li>
+	  </ul>
+
+  </div>
+</footer>
 
 </html>

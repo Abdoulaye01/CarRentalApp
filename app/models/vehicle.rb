@@ -13,11 +13,12 @@ validates  :vehicleType, presence: true
 
 	 validates :engineSize, presence: true, numericality: true
 	   validates  :fuelType, presence: true
+	   validates_numericality_of :price, presence: true
 	   
 	  # validates_format_of :fuelType, :with => /\w+/, :message => " can only contain characters"
   validates_format_of :fuelType, :with => /\A[a-zA-Z]+\z/, :message => " must have one upper/lower case"
   validates_format_of :colour, :with => /\A[a-zA-Z]+\z/, :message => " must have one upper/lower case"
 	 validates  :colour, presence: true
 	
-	 
-	 end
+
+end

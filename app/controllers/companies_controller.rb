@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, :only => [:new, :create, :edit, :update, :delete]
+
 
   # GET /companies
   # GET /companies.json

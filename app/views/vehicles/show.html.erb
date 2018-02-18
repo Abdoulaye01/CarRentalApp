@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Regnumber:</strong>
@@ -7,7 +7,8 @@
 
 <p>
   <strong>VehicletypeImage:</strong>
-  <%= @vehicle.vehicleType %>
+  <%= image_tag @vehicle.vehicleType, size: "200x160" %>
+
 </p>
 
 <p>
@@ -26,9 +27,17 @@
 </p>
 
 <p>
-  <strong>Company:</strong>
-  <%= @vehicle.company.address %>
+  <strong>RentalPrice:</strong>
+  <%= euro @vehicle.price %>
 </p>
+
+<p>
+  <strong>Companylocation:</strong>
+ <%= @vehicle.company.address %>
+</p>
+
+
+
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>

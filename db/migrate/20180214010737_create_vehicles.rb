@@ -6,6 +6,7 @@ class CreateVehicles < ActiveRecord::Migration[5.1]
       t.integer :engineSize
       t.string :fuelType
       t.string :colour
+      t.decimal :price
       t.string :company_id
 
       t.timestamps

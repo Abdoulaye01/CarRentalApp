@@ -37,8 +37,28 @@
   </div>
 
   <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender, id: :customer_gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.date_field :dob, id: :customer_dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :customer_password %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :customer_password_confirmation %>
+  </div>
+
+  <div class="field">
     <%= form.label :company_id %>
-    <%= form.collection_select :company_id, Company.order(:address), :id, :address %>
+   <%= form.collection_select :company_id, Company.order(:address), :id, :address %>
   </div>
 
   <div class="actions">

@@ -1,6 +1,10 @@
 class Rental < ApplicationRecord
     belongs_to :vehicle
  belongs_to :customer
+ has_many :reviews, dependent: :destroy
+	def average_stars
+		comments.average(:stars)
+	end
     validates :customer, presence: true
 	validates :odemeterBefore, presence: true, numericality: true
     validates :odemeterAfter, presence: true, numericality: true

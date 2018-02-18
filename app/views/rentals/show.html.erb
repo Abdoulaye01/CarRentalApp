@@ -40,5 +40,39 @@
   <%= @rental.vehicle.regNumber %>
 </p>
 
+<h2>Star Rating and Review</h2>
+<%= form_for([@rental, Review.new]) do |form| %>
+<h3><%= form.label :stars %>
+<% stars = [1,2,3,4,5] %>
+<% stars.each do |star| %>
+<%= form.radio_button :stars, star %><%= star %>
+<% end %>
+</h3><br>
+
+<%= form.text_area :content, :rows => 4, :cols => 40 %>
+<div class = "actions">
+ <%= form.submit "Post a review" %>
+ </div>
+<%end%>
+
+
+
+<%if @rental.reviews.empty? %>
+<h3>You are the first to review on this rental</h3>
+<%else%>
+
+<h2>What others felt about this:</h2>
+<% @rental.reviews.reverse.each do |comment| %>
+<p><%= review.content %>
+	Posted<%= time_ago_in_words(review.created_at) %> ago by
+<%= review.customer.firstname  %></p>
+
+<% end %>
+<h3>Star Rating </h3>
+<p>
+<%= number_with_precision(@rental.average_stars, precision: 0) %>
+</p>
+<% end %>	
+
 <%= link_to 'Edit', edit_rental_path(@rental) %> |
 <%= link_to 'Back', rentals_path %>

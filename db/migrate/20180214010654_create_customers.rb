@@ -6,6 +6,9 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.string :address
       t.string :email
       t.integer :phoneNumber
+      t.string :gender
+      t.string :dob
+      t.string :password
       t.string :company_id
 
       t.timestamps

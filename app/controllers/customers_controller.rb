@@ -1,10 +1,13 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, :only => [:create]
+
 
   # GET /customers
   # GET /customers.json
   def index
     @customers = Customer.paginate(:page =>params[:page], :per_page => 2)
+
   end
 
   # GET /customers/1
@@ -69,6 +72,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:firstName, :lastName, :address, :email, :phoneNumber, :company_id)
+      params.require(:customer).permit(:firstName, :lastName, :address, :email, :phoneNumber, :gender, :dob, :password, :password_confirmation, :company_id)
     end
 end
