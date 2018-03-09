@@ -3,7 +3,7 @@ class Rental < ApplicationRecord
  belongs_to :customer
  has_many :reviews, dependent: :destroy
 	def average_stars
-		comments.average(:stars)
+		reviews.average(:stars)
 	end
     validates :customer, presence: true
 	validates :odemeterBefore, presence: true, numericality: true

@@ -1,12 +1,14 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
-  before_action :authorise, :only => [:new, :create, :edit, :update, :delete]
+  before_action :authorise, :only => [:new, :create, :edit, :update, :delete, :show]
+
+
 
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-     @vehicles = Vehicle.paginate(:page =>params[:page], :per_page => 2)
+     @vehicles = Vehicle.paginate(:page =>params[:page], :per_page => 5)
   end
 
   # GET /vehicles/1
@@ -71,6 +73,7 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:regNumber, :vehicleType, :engineSize, :fuelType, :colour, :price, :company_id)
-    end
+      params.require(:vehicle).permit(:regNumber, :vehicleType, :engineSize, :fuelType, :colour, :price, :company_id, :BrandName)
+   
+ end
 end

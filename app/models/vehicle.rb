@@ -20,5 +20,8 @@ validates  :vehicleType, presence: true
   validates_format_of :colour, :with => /\A[a-zA-Z]+\z/, :message => " must have one upper/lower case"
 	 validates  :colour, presence: true
 	
+def self.search(query)
+  where("BrandName LIKE ?", "%#{query}%") 
+end
 
 end

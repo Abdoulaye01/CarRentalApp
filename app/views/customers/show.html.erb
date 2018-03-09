@@ -36,20 +36,21 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @customer.password %>
-</p>
-
-<p>
   <strong>CompanyLocation:</strong>
    <%= @customer.company.address %>
 </p>
 <% @customer.rentals.each do |rental| %>
 <br>
-	Has rented this car with registration number : <%= rental.vehicle.regNumber %> and the Price was : <%= euro rental.vehicle.price %></br>
+	Has rented this car with registration number : <%= rental.vehicle.regNumber %> and the Price was : <%= euro rental.vehicle.price %>
+</br>
 	
 <% end %>
 <br>
+<h3>Your location on the Map! </h3>
+<p>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
+</p>
+	
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 

@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authorise, :only => [:new, :create, :edit, :update, :delete]
+ 
 
 
   # GET /companies
@@ -72,6 +73,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:city, :address, :areacode, :phoneNumber)
+      params.require(:company).permit(:city, :address, :areacode, :phoneNumber, :latitude, :longitude)
     end
 end

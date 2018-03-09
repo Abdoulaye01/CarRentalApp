@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>City:</strong>
@@ -20,5 +20,18 @@
   <%= @company.phoneNumber %>
 </p>
 
+<h3>Company location on the Map! </h3>
+<p>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8&markers=#{@company.latitude}%2C#{@company.longitude}" %>
+	</p>
+	
+	
+	<h3>Nearby Objects</h3>
+<ul>
+	<%@company.nearbys(1000).each do |company|%>
+		<li><%= link_to company.address, company %>(<%company.distance.round(2)  %>
+		 miles)</li>
+ <% end %>
+</ul>
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

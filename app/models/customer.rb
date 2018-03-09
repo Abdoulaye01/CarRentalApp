@@ -5,6 +5,9 @@ class Customer < ApplicationRecord
 	belongs_to :company
 	validates :firstName, presence: true
     validates :lastName, presence: true
+	geocoded_by :address
+	after_validation :geocode
+
 
 
 	validates :password, length: { minimum: 6 }
@@ -20,11 +23,10 @@ class Customer < ApplicationRecord
            
    validates_numericality_of :phoneNumber, presence: true
    validates :phoneNumber, presence: true, length: 6..10
-   validates :address, length: 6..20
+   validates :address, length: 6..60
    validates :gender, allow_blank: true, format: {
   with: %r{\.|male|female}i,
   message: 'must be male or female.'
 }
-
-
+	
 end

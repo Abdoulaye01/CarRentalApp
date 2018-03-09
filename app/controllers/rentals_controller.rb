@@ -15,6 +15,9 @@ class RentalsController < ApplicationController
   # GET /rentals/new
   def new
     @rental = Rental.new
+    @rental.customer_id = @current_customer.id #dis the foreign key on ordrer
+   # @rental.vehicle_id = @current_vehicle.id #dis the foreign key on ordrer
+
   end
 
   # GET /rentals/1/edit

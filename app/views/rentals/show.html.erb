@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Pickupdatetime:</strong>
@@ -62,10 +62,10 @@
 <%else%>
 
 <h2>What others felt about this:</h2>
-<% @rental.reviews.reverse.each do |comment| %>
+<% @rental.reviews.reverse.each do |review| %>
 <p><%= review.content %>
-	Posted<%= time_ago_in_words(review.created_at) %> ago by
-<%= review.customer.firstname  %></p>
+	Posted <%= time_ago_in_words(review.created_at) %> ago by
+<%= review.customer.firstName  %></p>
 
 <% end %>
 <h3>Star Rating </h3>

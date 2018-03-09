@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215010754) do
+ActiveRecord::Schema.define(version: 20180307024754) do
 
   create_table "companies", force: :cascade do |t|
     t.string "city"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180215010754) do
     t.integer "phoneNumber"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 20180215010754) do
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -67,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180215010754) do
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "BrandName"
   end
 
 end

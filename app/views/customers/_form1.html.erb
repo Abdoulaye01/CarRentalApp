@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :phoneNumber %>
-    <%= form.number_field :phoneNumber, id: :customer_phoneNumber %>
+    <%= form.number_field :phoneNumber, placeholder: " minimum: 6", id: :customer_phoneNumber %>
   </div>
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.text_field :gender, id: :customer_gender, placeholdder: "minimum: 6 " %>
+    <%= form.text_field :gender, placeholder: " Male/Female", id: :customer_gender %>
   </div>
 
   <div class="field">
@@ -48,20 +48,15 @@
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.password_field :password, placeholder: "minimum: 6", id: :customer_password %>
+    <%= form.password_field :password, placeholder: " minimum: 6", id: :customer_password %>
   </div>
   
   <div class="field">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, placeholder: "minimum: 6", id: :customer_password_confirmation %>
-  </div>
-  
-   <div class="field">
-    <%= form.label :company_id %>
-   <%= form.collection_select :company_id, Company.order(:address), :id, :address %>
+    <%= form.password_field :password_confirmation, placeholder: " minimum: 6", id: :customer_password_confirmation %>
   </div>
 
-  <div class="actions">
+    <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :authorise, :only => [:create]
+  before_action :authorise, :except => [:new, :create]
 
 
   # GET /customers
@@ -72,6 +72,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:firstName, :lastName, :address, :email, :phoneNumber, :gender, :dob, :password, :password_confirmation, :company_id)
+      params.require(:customer).permit(:firstName, :lastName, :address, :email, :phoneNumber, :gender, :dob, :password, :password_confirmation, :company_id, :latitude, :longitude)
     end
 end

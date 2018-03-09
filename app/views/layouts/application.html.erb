@@ -20,7 +20,7 @@
 
 <h1 style="color: red">Car Rental</h1>
 
-<%= link_to image_tag("rental.jpg", size: "170x100", alt: "Company logo"), 'http://localhost:3000/vehicles' %>
+<%= link_to image_tag("rental.jpg", size: "170x100", alt: "Company logo"), vehicles_path %>
 
 
  <nav class="navbar navbar-default">
@@ -35,23 +35,29 @@
       </button>
      
       <ul class="nav navbar-nav">
-        <li><%= link_to "Company",'http://localhost:3000/companies' %></li>
+	      <li><%= link_to "Home", 'pages/index' %></li>  
+        <li><%= link_to "Company", companies_path %></li>
 
-<li><%= link_to "Rental", 'http://localhost:3000/rentals' %></li>
+<li><%= link_to "Rentals", rentals_path %></li>
 
-<li><%= link_to "Customer", 'http://localhost:3000/customers'%></li>
-<li><%= link_to "Vehicle", 'http://localhost:3000/vehicles'%></li>
-
+<li><%= link_to "Customers", customers_path%></li>
+<li><%= link_to "Vehicles", vehicles_path %></li>
+<li></br></li>
+<li></li>
+<li></li>
      		<li><% if !signed_in? %></li>
 					<li><%= link_to "Sign In", login_path %></li>
 				<% else %>
 				<li><%= link_to "Sign Out", logout_path %></li>
 				<li>Welcome back <%= @current_customer.firstName %> :)</li>
-
 				<li><%end%></li>
-
-      </ul>
+				
+<li><%= render '/layouts/search' %></li>
+	      </ul>
+	      
     </div>
+    
+
   </div>
 	 </nav>	 
 <div class="container-fluid">
@@ -65,6 +71,7 @@
 		</div>
 	<% end %>
 	<%= yield %>
+	
 </body>
 <footer>
 	

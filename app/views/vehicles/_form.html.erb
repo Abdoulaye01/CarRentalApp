@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :regNumber %>
-    <%= form.text_field :regNumber, id: :vehicle_regNumber %>
+    <%= form.text_field :regNumber, placeholder: "length: 6..10", id: :vehicle_regNumber %>
   </div>
 
   <div class="field">
@@ -36,6 +36,8 @@
     <%= form.text_field :colour, id: :vehicle_colour %>
   </div>
 
+
+  
   <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price, id: :vehicle_price %>
@@ -44,6 +46,11 @@
   <div class="field">
     <%= form.label :company_id %>
     <%= form.collection_select :company_id, Company.order(:address), :id, :address %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :BrandName %>
+    <%= form.text_field :BrandName, id: :vehicle_BrandName %>
   </div>
 
   <div class="actions">
